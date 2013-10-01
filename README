@@ -1,0 +1,37 @@
+<?php
+  
+ $dbconn = pg_connect("host=ec2-54-227-239-195.compute-1.amazonaws.com port=5432 dbname=da2p912vb9fik7 user=ldsxwrozhlwcgq password=PVIK-XekrLIxFh1WB39sQLx7Es sslmode=require options='--client_encoding=UTF8'") or die('Could not connect: ' . pg_last_error());
+ $db = mysql_select_db("da2p912vb9fik7",$dbconn);
+
+?>
+<?php
+       echo "<html>";
+       echo "<head>";
+       echo "<title>India Post Online Package Delivery System</title>";
+       echo "<body><font size='5'color='red'><center><h1>INDIAN POST ONLINE PACKAGE DELIVERY SYSTEM</h1></font>";
+       echo "<center><font size='4' color='blue'><h3>Confirmation Page</h3></font>";
+    
+       $sql="SELECT * from info";
+       $qury=mysql_query($sql);
+       while($row = mysql_fetch_array($qury))
+       echo "<ul><li><font size='4' color='green'>Name</font>  :  $row[0] $row[1]</li></ul><ul><li><font size='4' color='green'>Email Address</font>  :  $row[2]</li></ul><ul><li><font size='4' color='green'>Address</font>  :  $row[3]</li></ul>";
+
+       $sql1="SELECT * from info1";
+       $qury1=mysql_query($sql1);
+       while($row = mysql_fetch_array($qury1))
+       echo "<ul><li><font size='4' color='green'>Pickup Date & Time</font>  : $row[0]</li></ul><ul><li><font size='4' color='green'>Weight of the Parcel</font>  :  $row[1]</li></ul>";
+
+       $sql2="DROP table info";
+       $qury2=mysql_query($sql2);
+
+       $sql3="DROP table info1";
+       $qury3=mysql_query($sql3);
+
+       echo "<input type='submit' name='button' value='Submit'>";
+
+       echo "</body>";
+       echo "</head>";
+       echo "</html>";
+
+?>
+
